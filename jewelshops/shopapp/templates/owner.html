@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Order Checkout Page</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Fira Sans' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+		
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="/">Jewelery</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav mr-auto">
+						<a class="nav-item nav-link active" href="/addjewel/">addjewel<span class="sr-only">(current)</span></a>
+						
+						<a class="nav-item nav-link active" href="/necklase/<str:jewelname>">necklace<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link active" href="/ring/<str:jewelname>/">ring<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link active" href="#">bangle<span class="sr-only">(current)</span></a>
+						
+					</div>
+					<div class="navbar-nav">
+						
+						<a class="btn btn-outline-success" href="/logout/"  style="float-right">Logout<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link active" href="#">{{user.username}}<span class="sr-only">(current)</span></a>
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+		<br>
+		<br>
+
+		<div class="conatiner">
+		<div class="row" style="margin-left:50px;">
+	{%for j in tj%}
+	<div class="col-md-2">
+<div class="card " style="width: 12rem;">
+	<div class="card-body">
+    <img src="{{j.jewelimg.url}}" class="card-img-top" alt="hi">
+    
+      <h5 class="card-title">jewelname:{{j.jewelname}}</h5>
+      <p class="card-text">desc:{{j.smalldesc}}</p>
+      <p class="card-text">price:{{j.price}}</p>
+      <p class="card-text">id:{{j.id}}</p>
+      
+      <a href="/deletejewel/{{j.id}}/" class="btn btn-primary">delete</a>
+      <br><br>
+      <a href="/checkout/{{j.id}}/" class="btn btn-primary">purchsed detail</a>
+    </div>
+  
+  </div>
+  
+</div>
+
+{%endfor%}
+</div>
+</div>
+	</body>

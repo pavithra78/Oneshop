@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Order Checkout Page</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Fira Sans' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+					
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="/">JEwelery</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav mr-auto">
+						<a class="nav-item nav-link active" href="/<slug:customer>/customer/">Welcome<span class="sr-only">(current)</span></a>
+						
+						<a class="nav-item nav-link active" href="/necklase/<str:jewelname>">necklace<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link active" href="/ring/<str:jewelname>/">ring<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link active" href="#">bangles<span class="sr-only">(current)</span></a>
+						
+					</div>
+					<div class="navbar-nav">
+						
+						<a class="btn btn-outline-success" href="/logout/"  style="float-right">Logout<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link active" href="#">{{user.username}}<span class="sr-only">(current)</span></a>
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+		<br>
+		<br>
+		<div class="container v" id="myDIV" style="text-align:center; padding-top:30px;">
+			
+		
+		<table class="table table-striped" style="width:50px;">
+  <thead>
+    <tr>
+      <th scope="col">Jewelname</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  	{%for i in tj%}
+    <tr>
+      
+      <td>{{i.jewelname}}</td>
+ 
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+	</body>
